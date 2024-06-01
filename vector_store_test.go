@@ -281,12 +281,12 @@ func TestVectorStore(t *testing.T) {
 	})
 
 	t.Run("list_vector_store", func(t *testing.T) {
-		_, err := client.ListVectorStores(ctx, &limit, &order, &after, &before)
+		_, err := client.ListVectorStores(context.TODO(), &limit, &order, &after, &before)
 		checks.NoError(t, err, "ListVectorStores error")
 	})
 
 	t.Run("create_vector_store_file", func(t *testing.T) {
-		_, err := client.CreateVectorStoreFile(ctx, vectorStoreID, openai.VectorStoreFileRequest{
+		_, err := client.CreateVectorStoreFile(context.TODO(), vectorStoreID, openai.VectorStoreFileRequest{
 			FileID: vectorStoreFileID,
 		})
 		checks.NoError(t, err, "CreateVectorStoreFile error")
